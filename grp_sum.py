@@ -57,11 +57,11 @@ def inv_sum(df):
     group_cols + ['Dia Cts', 'Dia Rate', 'Dia Val']
     ]        
     
-    col_stn=(
-        df[df['desc'] == 'Studded Color Stone']
-        .groupby(group_cols,as_index=False)[['inv rm wt','inv value']]
-        .sum()
-    )
+    col_stn = (
+    df[df['desc'].isin(['Studded Semi  Precious Color Stone','Studded Color Precious Stone','Studded Color Synthetic Stone','Studded Color Pearl Stone','Studded Color Stone'])]
+    .groupby(group_cols, as_index=False)[['inv rm wt', 'inv value']]
+    .sum()
+)
     
     col_stn['Col Stn Rate'] = (
         col_stn['inv value']

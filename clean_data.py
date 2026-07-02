@@ -115,9 +115,10 @@ def clean_data(df, df_mst, df_dsgctg,df_con):
         if row['desc'] == 'Studded Color Pearl Stone':
             
              return row['desc']  
-    
-    
+        if row['desc'] == 'Studded Semi  Precious Color Stone':
             
+             return row['desc']  
+    
         elif row['desc'] in [
             'Studded Diamond',
             #'Studded Color Stone'
@@ -151,10 +152,17 @@ def clean_data(df, df_mst, df_dsgctg,df_con):
             return 'Col Pr Stn'
         
         elif row['desc_1'] == 'Studded Semi  Precious Color Stone':
-            
+                        
             return 'Col Semi Pr Stn'
         
-        
+        elif row['desc_1'] == 'Studded Color Synthetic Stone':
+                        
+            return 'Col Synthetic Stn'
+
+        elif row['desc_1'] == 'Studded Color Pearl Stone':
+                        
+            return 'Col Pearl Stn'
+
         else:
             
             return str(row['desc_1'])

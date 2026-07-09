@@ -249,6 +249,25 @@ def inv_sum(df):
         how='left'
     )
 
+# ---------------- REMOVE SPECIFIED COLUMNS ----------------
+
+    remove_columns = [
+        'Gold Wt',
+        'Pure Gold Wt',
+        'Dia Rate',
+        'Dia_RmWt',
+        'Col Semi Pr Stn_RmWt',
+        'Col Stn Rate',
+        'Gold-18KT_Amt',
+        'Gold-18KT-1_Amt',
+        'Gold-22KT_Amt',
+        'Gold-22KT-1_Amt'
+        'Gold-14KT_Amt',
+        'Gold-14KT-1_Amt',
+    ]
+
+    result = result.drop(columns=remove_columns, errors='ignore')
+
 
 
 #    pivot_df1 = (
@@ -283,6 +302,8 @@ def inv_sum(df):
   #      on=group_cols,
   #      how='left'
   #  )
+   
+   
    
     result = result.loc[
     :,
@@ -326,3 +347,4 @@ def inv_sum(df):
     result = result.fillna(0)
 
     return result
+

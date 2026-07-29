@@ -94,6 +94,14 @@ def clean_data(df, df_mst, df_dsgctg,df_con):
         elif row['desc'] == 'Silver':
 
             return 'Silver-' + str(row['karatage'])
+        
+        elif row['desc'] == 'Rubber':
+
+            return 'Rubber' #+ str(row['karatage'])
+
+        elif row['desc'] == 'Cord':
+
+            return 'Cord' #+ str(row['karatage'])
 
         elif row['desc'] == 'Studded Semi  Precious Color Stone':
             

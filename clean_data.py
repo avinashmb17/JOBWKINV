@@ -30,7 +30,43 @@ def clean_data(df, df_mst, df_dsgctg,df_con):
     a1_cell = df.iloc[0, 0]
 
     df['exp_ref'] = a1_cell
+    
+    # =========================================================
+# DESIGN + LAST 4 DIGITS OF ORDER NO
+# =========================================================
 
+# Clean Design
+    df['design'] = (
+        df['design']
+        .astype(str)
+        .str.strip()
+    )
+
+# Clean Order No
+    df['order no'] = (
+        df['order no']
+        .astype(str)
+        .str.strip()
+    )
+
+# Extract numeric part from Order No
+    df['order_last4'] = (
+    df['order no']
+    .astype(str)
+    .str.strip()
+    .str.split('/')
+    .str[-1]
+    .str.strip()
+    .str[-4:]
+)
+    
+ 
+# Create new Design
+    df['design'] = (
+        df['design']
+        + df['order_last4']
+    )
+    
     # Merge master
     df = df.merge(
         df_mst[['ctg', 'desc', 'ctg_sort','category']],
@@ -98,10 +134,14 @@ def clean_data(df, df_mst, df_dsgctg,df_con):
         elif row['desc'] == 'Rubber':
 
             return 'Rubber' #+ str(row['karatage'])
-
+        
         elif row['desc'] == 'Cord':
 
             return 'Cord' #+ str(row['karatage'])
+            
+        elif row['desc'] == 'Carfiber':
+
+            return 'Carfiber' #+ str(row['karatage'])
 
         elif row['desc'] == 'Studded Semi  Precious Color Stone':
             
@@ -181,7 +221,8 @@ def clean_data(df, df_mst, df_dsgctg,df_con):
     )
 
     # Sort
-    df = df.sort_values('ctg_sort')
+    #df = df.sort_values('ctg_sort','design').reset_index(drop=True)
+    df = df.sort_values( ['ctg_sort', 'design'] ).reset_index(drop=True)
 
     # Final Desc
     result = []

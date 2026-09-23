@@ -302,63 +302,63 @@ def clean_data(df, df_mst, df_dsgctg, df_con):
         # -----------------------------------------------------
         # Platinum
         # -----------------------------------------------------
-
-        elif desc.lower() == '950PT':
-
-            return 'Plantinium'
-
-        
-        
+        #    print("desc:", desc)
+        #elif desc.lower() == '950PT':
+        elif desc.lower() == 'plantinium':
+            if karatage:
+                return 'Plantinium-' + karatage
+            else:
+                return 'Plantinium'
         
         # -----------------------------------------------------
         # RUBBER
         # -----------------------------------------------------
 
-        #elif desc.lower() == 'rubber':
+        elif desc.lower() == 'rubber':
 
-        #    return 'Rubber'
+            return 'Rubber'
 
 
         # -----------------------------------------------------
         # CORD
         # -----------------------------------------------------
 
-        #elif desc.lower() == 'cord':
+        elif desc.lower() == 'cord':
 
-        #    return 'Cord'
+            return 'Cord'
 
 
         # -----------------------------------------------------
         # CARFIBER
         # -----------------------------------------------------
 
-        #elif desc.lower() == 'carfiber':
+        elif desc.lower() == 'carfiber':
 
-        #    return 'Carfiber'
+            return 'Carfiber'
         
         # -----------------------------------------------------
         # Nithinol
         # -----------------------------------------------------
         
-        #elif desc.lower() == 'nithinol':
+        elif desc.lower() == 'nithinol':
 
-        #    return 'Nithinol'
+            return 'Nithinol'
 
         # -----------------------------------------------------
         # Steel
         # -----------------------------------------------------
         
-        #elif desc.lower() == 'steel':
+        elif desc.lower() == 'steel':
 
-        #    return 'Steel'
+            return 'Steel'
 
         # -----------------------------------------------------
         # Titanium
         # -----------------------------------------------------
         
-       # elif desc.lower() == 'titanium':
+        elif desc.lower() == 'titanium':
 
-       #     return 'Titanium'
+            return 'Titanium'
 
 
 
@@ -474,7 +474,8 @@ def clean_data(df, df_mst, df_dsgctg, df_con):
     combination_materials = {
         'gold',
         'silver',
-        '950pt'
+        '950pt',
+        'Plantinium'
     }
 
 

@@ -475,7 +475,7 @@ def clean_data(df, df_mst, df_dsgctg, df_con):
         'gold',
         'silver',
         '950pt',
-        'Plantinium'
+        'plantinium'
     }
 
 
